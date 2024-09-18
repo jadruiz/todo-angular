@@ -1,17 +1,24 @@
-<table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+<table
+  mat-table
+  [dataSource]="tasks"
+  class="mat-elevation-z8"
+  style="width: 100%; margin: 20px auto"
+>
   <!-- Title Column -->
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <th mat-header-cell *matHeaderCellDef>Título</th>
     <td mat-cell *matCellDef="let task">{{ task.title }}</td>
   </ng-container>
+
   <!-- Description Column -->
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <th mat-header-cell *matHeaderCellDef>Descripción</th>
     <td mat-cell *matCellDef="let task">{{ task.description }}</td>
   </ng-container>
+
   <!-- Completed Column -->
   <ng-container matColumnDef="completed">
-    <th mat-header-cell *matHeaderCellDef>Completed</th>
+    <th mat-header-cell *matHeaderCellDef>Completado</th>
     <td mat-cell *matCellDef="let task">
       <mat-checkbox
         (change)="toggleCompletion(task)"
@@ -22,13 +29,15 @@
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
     <td mat-cell *matCellDef="let task">
       <button mat-button color="warn" (click)="deleteTask(task.id!)">
-        Delete
+        Eliminar
       </button>
     </td>
   </ng-container>
+
+  <!-- Header and Row Definitions -->
   <tr
     mat-header-row
     *matHeaderRowDef="['title', 'description', 'completed', 'actions']"

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -25,7 +26,11 @@ import { TaskService } from '../task.service';
 export class TaskFormComponent {
   taskForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private taskService: TaskService) {
+  constructor(
+    private fb: FormBuilder,
+    private taskService: TaskService,
+    private router: Router
+  ) {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -36,6 +41,7 @@ export class TaskFormComponent {
     if (this.taskForm.valid) {
       this.taskService.createTask(this.taskForm.value).subscribe(() => {
         this.taskForm.reset();
+        this.router.navigate(['/tasks']);
       });
     }
   }

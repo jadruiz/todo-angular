@@ -1,12 +1,20 @@
-<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput formControlName="title" />
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input
+      matInput
+      formControlName="title"
+      placeholder="Ingresa el título de la tarea"
+    />
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <input matInput formControlName="description" />
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <input
+      matInput
+      formControlName="description"
+      placeholder="Ingresa una descripción"
+    />
   </mat-form-field>
 
   <button
@@ -15,6 +23,6 @@
     type="submit"
     [disabled]="taskForm.invalid"
   >
-    Add Task
+    Agregar Tarea
   </button>
 </form>

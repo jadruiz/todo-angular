@@ -1,0 +1,22 @@
+/* Estilo para la barra de navegación */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Estilo para los enlaces de navegación */
+nav a {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Cambiar el color al pasar el mouse */
+nav a:hover {
+  color: #0d47a1;
+}
